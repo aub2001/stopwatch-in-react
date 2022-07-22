@@ -11,6 +11,7 @@ const Btn = styled.button`
     border: 1px solid black;
     margin-right: 2vh;
     margin-top: 3vh;
+    margin-bottom: 3vh;
 
     ${props => props.start && css`
         border: none;
@@ -30,23 +31,23 @@ export default function Buttons(props) {
   return (
     <div>
 
-        {(props.status === 0)?
+        {(props.status === "initial")?
         <div>
             <Btn start onClick={props.start}>Start</Btn>
         </div>
         : ""
         }
 
-        {(props.status === 1)?
+        {(props.status === "pause")?
         <div>
             <Btn pause onClick={props.pause}>Pause</Btn>
-            <Btn onClick={props.spilt}>Split</Btn>
+            <Btn onClick={props.split}>Split</Btn>
         </div>
         : ""
         }
 
 
-        {(props.status === 2)?
+        {(props.status === "reset")?
         <div>
             <Btn pause onClick={props.resume}>Resume</Btn>
             <Btn onClick={props.reset}>Reset</Btn>
